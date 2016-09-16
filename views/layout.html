@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html  dir="ltr" class="uk-height-1-1">
+    <head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{.PageTitle}}</title>
+        <link rel="stylesheet" href="/static/css/uikit.min.css" />
+        <link rel="stylesheet" href="/static/css/uikit.almost-flat.min.css">
+        <link rel="stylesheet" href="/static/css/components/form-file.min.css">
+        <link rel="stylesheet" href="/static/css/components/progress.almost-flat.min.css">
+        <link rel="stylesheet" href="/static/css/main.css" />
+        {{if .ExtraCSS}}
+            <link rel="stylesheet" href="{{.ExtraCSS}}" />
+        {{end}}
+        <script src="/static/js/jquery-3.1.0.min.js"></script>
+        <script src="/static/js/jquery-cookie.js"></script>
+        <script src="/static/js/uikit.min.js"></script>
+        <script src="/static/js/components/upload.min.js"></script>
+        <script src="/static/js/jquery-form-validator/jquery.form-validator.min.js"></script>
+        
+    </head>
+    <body class="uk-height-1-1">
+    	<div class="uk-container uk-container-center">
+    		<nav class="uk-navbar">
+    			<a href="/" class="uk-navbar-brand">{{.AppName}}</a>
+    			<ul class="uk-navbar-nav">
+    				<li><a href="/">{{i18n .Lang "nav_upload"}}</a></li>
+    				<li><a href="/my_images">{{i18n .Lang "nav_images"}}</a></li>
+    				<li class="uk-parent" data-uk-dropdown>
+    					<a href="">{{.User.Username}}  <i class="uk-icon-caret-down"></i></a>
+    					<div class="uk-dropdown uk-dropdown-navbar">
+    						<ul class="uk-nav uk-nav-navbar">
+	    						<li><a href="/user">{{i18n .Lang "nav_profile"}}</a></li>
+                                {{if eq .User.Username "admin"}}
+                                <li><a href="/users">{{i18n .Lang "nav_manage_users"}}</a></li>
+                                {{end}}
+	    						<li><a href="/logout">{{i18n .Lang "nav_logout"}}</a></li>
+	    					</ul>
+    					</div>
+    				</li>
+    			</ul>
+    			<div class="uk-navbar-flip">
+    				<ul class="uk-navbar-nav">
+		                <li class="uk-parent" data-uk-dropdown>
+		                    <a href="">{{i18n .Lang "current_lang"}}:{{i18n .Lang .Lang}} <i class="uk-icon-caret-down"></i></a>
+		                    <div class="uk-dropdown uk-dropdown-navbar">
+		                        <ul class="uk-nav uk-nav-navbar">
+		                          {{range .RestLangs}}
+		                            <li><a href="javascript::" data-lang="{{.Lang}}" class="lang-changed">{{i18n $.Lang .Name}}</a></li>
+		                          {{end}}
+		                        </ul>
+		                    </div>
+		                </li>
+                        <li><a href="https://github.com/naokij/imgdrop"><i class="uk-icon-github uk-icon-small" title='{{i18n .Lang "source_code"}}'></i></a></li>
+		            </ul>
+	            </div>
+			</nav>
+    		{{.LayoutContent}}
+    	</div>
+        <script src="/static/js/main.js"></script>
+    </body>
+</html>

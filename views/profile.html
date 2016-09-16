@@ -1,0 +1,42 @@
+<div class="uk-grid uk-margin-large">
+	<div class="uk-width-1-2 uk-container-center">
+		<div class="uk-panel uk-panel-box uk-panel-header">
+			<h3 class="uk-panel-title">{{i18n .Lang "nav_profile"}}</h3>
+			{{if .flash.notice }}
+				<div class="uk-alert uk-alert-success">{{ .flash.notice}}</div>
+			{{end}}
+			<form action="/user" method="post" class="uk-panel uk-panel-box uk-form uk-form-horizontal" id="profile-form">
+				{{ onceformhtml}}
+				<div class="uk-form-row">
+					<label class="uk-form-label" for="Username">{{i18n .Lang "Username"}}</label>
+					<input type="text" name="Username" value="{{.User.Username}}" disabled>
+				</div>
+				<div class="uk-form-row">
+					<label class="uk-form-label" for="Email">{{i18n .Lang "email"}}</label>
+					<input type="text" name="Email" value="{{.form.Email}}">
+					{{if isset .errorsMap "Email" }}
+                        <div class="uk-text-danger">{{ map_get .errorsMap "Email"}}</div>
+                    {{end}}
+				</div>
+				<div class="uk-form-row">
+					<label class="uk-form-label" for="Password">{{i18n .Lang "Password"}}</label>
+					<input type="password" name="Password" value="{{.form.Password}}">
+					{{if isset .errorsMap "Password" }}
+                        <div class="uk-text-danger">{{ map_get .errorsMap "Password"}}</div>
+                    {{end}}
+				</div>
+				<div class="uk-form-row">
+					<label class="uk-form-label" for="Password-Confirm">{{i18n .Lang "password_confirm"}}</label>
+					<input type="password" name="PasswordConfirm" value="{{.form.PasswordConfirm}}">
+					{{if isset .errorsMap "PasswordConfirm" }}
+                        <div class="uk-text-danger">{{ map_get .errorsMap "PasswordConfirm"}}</div>
+                    {{end}}
+				</div>
+				<div class="uk-form-row">
+                    <button class="uk-width-1-1 uk-button uk-button-primary uk-button-large" type="submit">{{i18n .Lang "update"}}</button>
+                </div>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="/static/js/profile.js"></script>

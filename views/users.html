@@ -1,0 +1,24 @@
+<div  class="uk-margin">
+	<div class="uk-panel uk-panel-box uk-panel-header uk-width-1-2 uk-container-center">
+		<h3 class="uk-panel-title">{{i18n .Lang "nav_manage_users"}}</h3>
+		<div><a class="uk-icon-plus uk-icon-hover uk-icon-small" href="{{urlfor `UserController.New`}}"></a></div>
+		<table class="uk-table">
+	    <thead>
+	        <tr>
+	            <th>{{i18n .Lang "Username"}}</th>
+	            <th>{{i18n .Lang "Email"}}</th>
+	            <th>&nbsp;</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	    	{{range .Users}}
+	        <tr>
+	            <td>{{ .Username}}</td>
+	            <td>{{ .Email}}</td>
+	            <td><a class="uk-icon-edit uk-icon-hover uk-icon-small" href="{{urlfor `UserController.Edit` `:id` .Id}}"></a></td>
+	        </tr>
+	        {{end}}
+	    </tbody>
+		</table>
+	</div>
+</div>

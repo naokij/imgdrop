@@ -1,0 +1,7 @@
+<div  class="uk-margin uk-panel uk-panel-box uk-panel-header" data-uk-grid="{gutter: 20}">
+	{{range .images }}
+		<div class="uk-width-small-1-2 uk-width-medium-1-5 uk-panel uk-panel-hover"><img src="{{ . }}"></div>
+	{{end}}
+</div>
+{{template "base/paginator.html" .}}
+<script src="/static/js/components/grid.min.js"></script>

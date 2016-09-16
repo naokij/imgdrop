@@ -1,0 +1,37 @@
+<div class="uk-grid uk-margin-large">
+	<div class="uk-width-1-2 uk-container-center">
+		<div class="uk-panel uk-panel-box uk-panel-header">
+			<h3 class="uk-panel-title">{{i18n .Lang "nav_users_new"}}</h3>
+			{{if .flash.success }}
+				<div class="uk-alert uk-alert-success">{{ .flash.success}}</div>
+			{{end}}
+			<form action="{{urlfor `UserController.Create` }}" method="post" class="uk-panel uk-panel-box uk-form uk-form-horizontal" id="profile-form" autocomplete="off">
+				{{ onceformhtml}}
+				<div class="uk-form-row">
+					<label class="uk-form-label" for="Username">{{i18n .Lang "Username"}}</label>
+					<input type="text" name="Username" value="{{.form.Username}}" autocomplete="off">
+					{{if isset .errorsMap "Username" }}
+                        <div class="uk-text-danger">{{ map_get .errorsMap "Username"}}</div>
+                    {{end}}
+				</div>
+				<div class="uk-form-row">
+					<label class="uk-form-label" for="Email">{{i18n .Lang "email"}}</label>
+					<input type="text" name="Email" value="{{.form.Email}}" autocomplete="off">
+					{{if isset .errorsMap "Email" }}
+                        <div class="uk-text-danger">{{ map_get .errorsMap "Email"}}</div>
+                    {{end}}
+				</div>
+				<div class="uk-form-row">
+					<label class="uk-form-label" for="Password">{{i18n .Lang "Password"}}</label>
+					<input type="password" name="Password" value="{{.form.Password}}" autocomplete="off">
+					{{if isset .errorsMap "Password" }}
+                        <div class="uk-text-danger">{{ map_get .errorsMap "Password"}}</div>
+                    {{end}}
+				</div>
+				<div class="uk-form-row">
+                    <button class="uk-width-1-1 uk-button uk-button-primary uk-button-large" type="submit">{{i18n .Lang "create"}}</button>
+                </div>
+			</form>
+		</div>
+	</div>
+</div>

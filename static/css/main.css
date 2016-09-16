@@ -1,0 +1,66 @@
+
+@font-face {
+    font-family: 'yanone_kaffeesatz';
+    src: url('../fonts/yanonekaffeesatz-bold-webfont.woff2') format('woff2'),
+         url('../fonts/yanonekaffeesatz-bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'yanone_kaffeesatz';
+    src: url('../fonts/yanonekaffeesatz-regular-webfont.woff2') format('woff2'),
+         url('../fonts/yanonekaffeesatz-regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'yanone_kaffeesatz';
+    src: url('../fonts/yanonekaffeesatz-thin-webfont.woff2') format('woff2'),
+         url('../fonts/yanonekaffeesatz-thin-webfont.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'yanone_kaffeesatz';
+    src: url('../fonts/yanonekaffeesatz-light-webfont.woff2') format('woff2'),
+         url('../fonts/yanonekaffeesatz-light-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+
+}
+body{
+	background: #708c52 url(../img/background.jpg) no-repeat scroll center center;
+	background-size: cover
+}
+.uk-navbar{
+    background-color: rgba(245,245,245,0.8);
+}
+.uk-navbar-brand{
+    font-family: 'yanone_kaffeesatz';
+    font-weight: 400;
+    font-size: 1.8em;
+}
+h1{
+	color: #fff;
+	font-family: 'yanone_kaffeesatz';
+	font-weight: 400;
+}
+
+.uk-panel-box{
+    background-color: rgba(250,250,250,0.8)
+}

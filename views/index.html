@@ -1,0 +1,21 @@
+<div class="uk-grid uk-margin-large">
+	<div class="uk-width-1-2 uk-container-center">
+		<div class="uk-panel uk-panel-box">
+			<div id="upload-drop" class="uk-placeholder uk-text-large">
+			    <i class="uk-icon-cloud-upload uk-icon-large uk-text-muted uk-margin-small-right"></i>{{i18n .Lang "upload_hint_1"}}  <a class="uk-form-file">{{i18n .Lang "upload_hint_2"}}<input id="upload-select" type="file"></a>.
+			</div>
+			<div class="uk-text-danger uk-hidden" id="upload-error">
+			</div>
+			<div id="progressbar" class="uk-progress uk-hidden">
+			    <div class="uk-progress-bar" style="width: 0%;">...</div>
+			</div>
+			<div id="upload-result" class="uk-form-row uk-hidden">
+				<input onClick="this.select();" class="uk-width-1-1 uk-form-large uk-margin" id="upload-url" type="text">
+				<div>
+					<img id="uploaded-img" src="">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/static/js/upload.js"></script>

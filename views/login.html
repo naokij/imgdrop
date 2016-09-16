@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html dir="ltr" class="uk-height-1-1">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{.PageTitle}}</title>
+        <link rel="stylesheet" href="/static/css/uikit.almost-flat.min.css">
+        <link rel="stylesheet" href="/static/css/components/form-password.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+
+    <body class="uk-height-1-1">
+
+        <div class="uk-vertical-align uk-text-center uk-height-1-1">
+            <div class="uk-vertical-align-middle" style="width: 250px;">
+                <h1>{{.AppName}}</h1>
+                <form action="/login" method="post" class="uk-panel uk-panel-box uk-form" id="login-form">
+                {{ onceformhtml}}
+                    <div class="uk-form-row">
+                        <input class='uk-width-1-1 uk-form-large{{if isset .errorsMap "Username" }} uk-form-danger{{end}}' type="text" placeholder='{{i18n .Lang "Username"}}' name="Username" required data-validation-error-msg-required='{{i18n .Lang "Required"}}'>
+                        {{if isset .errorsMap "Username" }}
+                            <span class="uk-text-danger">{{ map_get .errorsMap "Username"}}</span>
+                        {{end}}
+                    </div>
+                    <div class="uk-form-row uk-form-password">
+                        <input class='uk-width-1-1 uk-form-large{{if isset .errorsMap "Password" }} uk-form-danger{{end}}' type="password" placeholder='{{i18n .Lang "Password"}}' name="Password" required data-validation-error-msg-required='{{i18n .Lang "Required"}}'>
+                        <a href="" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{i18n .Lang `show_password`}}', lblHide:'{{i18n .Lang `hide_password`}}'}">{{i18n .Lang `show_password`}}</a>
+                        {{if isset .errorsMap "Password" }}
+                            <span class="uk-text-danger">{{i18n .Lang "Password"}} {{ map_get .errorsMap "Password"}}</span>
+                        {{end}}
+                    </div>
+                    <div class="uk-form-row">
+                        <button class="uk-width-1-1 uk-button uk-button-primary uk-button-large" type="submit">{{i18n .Lang "login"}}</button>
+                    </div>
+                    <div class="uk-form-row uk-text-small">
+                        <label class="uk-float-left"><input type="checkbox" name="Remember" value="remember-me"> {{i18n .Lang "Remember_me"}}</label>
+                    </div>
+                    <div class="uk-form-row uk-text-small" >
+                        <div data-uk-dropdown="{pos:'bottom-center'}">
+                            <div>{{i18n .Lang "current_lang"}}:{{i18n .Lang .Lang}} <i class="uk-icon-caret-down"></i></div>
+                            <div class="uk-dropdown uk-dropdown-small">
+                                <ul class="uk-nav uk-nav-dropdown">
+                                  {{range .RestLangs}}
+                                    <li><a href="javascript::" data-lang="{{.Lang}}" class="lang-changed">{{i18n $.Lang .Name}}</a></li>
+                                  {{end}}
+                                </ul>
+                            </div>
+                        </div>
+                    </div> 
+                    
+                </form>
+            </div>
+        </div>
+
+        <script src="/static/js/jquery-3.1.0.min.js"></script>
+        <script src="/static/js/jquery-cookie.js"></script>
+        <script src="/static/js/uikit.min.js"></script>
+        <script src="/static/js/components/form-password.min.js"></script>
+        <script src="/static/js/jquery-form-validator/jquery.form-validator.min.js"></script>
+        <script src="/static/js/main.js"></script>
+        <script src="/static/js/login.js"></script>
+    </body>
+</html>

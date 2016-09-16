@@ -1,0 +1,26 @@
+hash: fccc8b1586eace6640372a9852c3fa6daf91f1cfee33998f3f7c76dca2a6b05a
+updated: 2016-09-16T14:13:22.485940276+08:00
+imports:
+- name: github.com/astaxie/beego
+  version: 3f67c62dd87d651ef95883586bca141abf795507
+  subpackages:
+  - cache
+  - config
+  - context
+  - grace
+  - logs
+  - orm
+  - session
+  - toolbox
+  - utils
+  - utils/captcha
+  - validation
+- name: github.com/beego/i18n
+  version: e87155e8f0c05bf323d0b13470e1b97af0cb5652
+- name: github.com/mattn/go-sqlite3
+  version: 3b3f1d01b2696af5501697c35629048c227586ab
+- name: github.com/rs/xid
+  version: 057f3c928c207d1e7e318929eeac93bb46e319e3
+- name: github.com/Unknwon/goconfig
+  version: 5aa4f8cd5a472c2411c778b4680f59f2223f1966
+testImports: []
