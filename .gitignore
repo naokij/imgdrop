@@ -2,5 +2,6 @@ cache/*
 images/*
 vendor/*
 conf/app.conf
+log/*.log
 data.db
-imgdrop*
+imgdrop_*
