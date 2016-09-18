@@ -1,0 +1,10 @@
+http://imgdrop.domain.com {
+  root     /opt/imgdrop
+  tls off
+  log stdout
+  errors stderr
+
+  proxy / localhost:8080 {
+    except /static /images
+  }
+}

@@ -5,3 +5,4 @@ conf/app.conf
 log/*.log
 data.db
 imgdrop_*
+Caddyfile
