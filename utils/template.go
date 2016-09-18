@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"encoding/base64"
 	"github.com/astaxie/beego"
 	"github.com/beego/i18n"
 	"github.com/naokij/imgdrop/setting"
@@ -59,6 +60,11 @@ func isSet(a interface{}, key interface{}) bool {
 	return false
 }
 
+func base64encode(str string) string {
+	encoded := base64.URLEncoding.EncodeToString([]byte(str))
+	return encoded
+}
+
 func init() {
 	// Register template functions.
 	beego.AddFuncMap("loadtimes", loadtimes)
@@ -69,4 +75,5 @@ func init() {
 	beego.AddFuncMap("loginurl", LoginUrlFor)
 	beego.AddFuncMap("i18n", i18n.Tr)
 	beego.AddFuncMap("isset", isSet)
+	beego.AddFuncMap("b64enc", base64encode)
 }

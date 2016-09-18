@@ -12,7 +12,8 @@ func InitRoutes() {
 	beego.Router("/", &controllers.MainController{})
 	beego.Router("/upload", &controllers.UploadController{})
 	beego.Router("/user", &controllers.UserController{})
-	beego.Router("/my_images", &controllers.ImagesController{})
+	beego.Router("/my_images", &controllers.ImagesController{}, "get:Get")
+	beego.Router("/my_images/delete", &controllers.ImagesController{}, "get:Delete")
 
 	//登录
 	authController := new(controllers.AuthController)

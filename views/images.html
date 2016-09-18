@@ -1,6 +1,18 @@
+{{if .flash.success }}
+	<div class="uk-alert uk-alert-success">{{ .flash.success}}</div>
+{{end}}
+{{if .flash.error }}
+	<div class="uk-alert uk-alert-danger">{{ .flash.error}}</div>
+{{end}}
 <div  class="uk-margin uk-panel uk-panel-box uk-panel-header" data-uk-grid="{gutter: 20}">
-	{{range .images }}
-		<div class="uk-width-small-1-2 uk-width-medium-1-5 uk-panel uk-panel-hover"><img src="{{ . }}"></div>
+	{{range $image := .images }}
+		<div class="uk-width-small-1-2 uk-width-medium-1-5 uk-panel uk-panel-hover">
+			<img src="{{ $image.URL }}">
+			<div>
+        		<div class="uk-form-row"><input type="text" class="uk-form-input uk-width-1-1" onClick="this.select();" value="{{ $image.URL }}"></div>
+				<a href='/my_images/delete?image={{$image.File}}' class="uk-icon-remove uk-icon-hover delete" onclick="return confirm('{{i18n $.Lang `image_remove_confirm`}}');"></a>
+			</div>
+		</div>
 	{{end}}
 </div>
 {{template "base/paginator.html" .}}
