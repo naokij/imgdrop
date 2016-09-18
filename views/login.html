@@ -18,13 +18,13 @@
                 <form action="/login" method="post" class="uk-panel uk-panel-box uk-form" id="login-form">
                 {{ onceformhtml}}
                     <div class="uk-form-row">
-                        <input class='uk-width-1-1 uk-form-large{{if isset .errorsMap "Username" }} uk-form-danger{{end}}' type="text" placeholder='{{i18n .Lang "Username"}}' name="Username" required data-validation-error-msg-required='{{i18n .Lang "Required"}}'>
+                        <input class='uk-width-1-1 uk-form-large{{if isset .errorsMap "Username" }} uk-form-danger{{end}}' type="text" placeholder='{{i18n .Lang "Username"}}' name="Username" required data-validation-error-msg-required='{{i18n .Lang "ErrorRequired"}}'>
                         {{if isset .errorsMap "Username" }}
                             <span class="uk-text-danger">{{ map_get .errorsMap "Username"}}</span>
                         {{end}}
                     </div>
                     <div class="uk-form-row uk-form-password">
-                        <input class='uk-width-1-1 uk-form-large{{if isset .errorsMap "Password" }} uk-form-danger{{end}}' type="password" placeholder='{{i18n .Lang "Password"}}' name="Password" required data-validation-error-msg-required='{{i18n .Lang "Required"}}'>
+                        <input class='uk-width-1-1 uk-form-large{{if isset .errorsMap "Password" }} uk-form-danger{{end}}' type="password" placeholder='{{i18n .Lang "Password"}}' name="Password" required data-validation-error-msg-required='{{i18n .Lang "ErrorRequired"}}'>
                         <a href="" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{i18n .Lang `show_password`}}', lblHide:'{{i18n .Lang `hide_password`}}'}">{{i18n .Lang `show_password`}}</a>
                         {{if isset .errorsMap "Password" }}
                             <span class="uk-text-danger">{{i18n .Lang "Password"}} {{ map_get .errorsMap "Password"}}</span>
