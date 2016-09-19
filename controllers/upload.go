@@ -49,7 +49,7 @@ func (this *UploadController) Post() {
 			response.Success = true
 			response.URL = setting.AppUrl + urlPrefix + h.Filename
 			if len(setting.ImageProxyURL) > 0 {
-				response.Thumb = utils.Thumb(response.URL, "350x")
+				response.Thumb = utils.Thumb(response.URL, "x350")
 			} else {
 				response.Thumb = response.URL
 			}

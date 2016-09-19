@@ -7,13 +7,15 @@
 <div  class="uk-margin uk-panel uk-panel-box uk-panel-header" data-uk-grid="{gutter: 20}">
 	{{range $image := .images }}
 		<div class="uk-width-small-1-2 uk-width-medium-1-5 uk-panel uk-panel-hover">
-			<img src="{{if $.thumb}}{{thumb $image.URL `160x`}}{{else}}{{ $image.URL }}{{end}}">
+			<a href='{{$image.URL}}' data-uk-lightbox="{group:'my-group'}">
+				<img src="{{if $.thumb}}{{thumb $image.URL `267x200`}}{{else}}{{ $image.URL }}{{end}}"></a>
 			<div>
         		<div class="uk-form-row"><input type="text" class="uk-form-input uk-width-1-1" onClick="this.select();" value="{{ $image.URL }}"></div>
-				<a href='/my_images/delete?image={{$image.File}}' class="uk-icon-remove uk-icon-hover delete" onclick="return confirm('{{i18n $.Lang `image_remove_confirm`}}');"></a>
+				<a href='/my_images/delete?image={{$image.File}}' class="uk-icon-remove uk-icon-hover" onclick="return confirm('{{i18n $.Lang `image_remove_confirm`}}');"></a>
 			</div>
 		</div>
 	{{end}}
 </div>
 {{template "base/paginator.html" .}}
 <script src="/static/js/components/grid.min.js"></script>
+<script src="/static/js/components/lightbox.min.js"></script>

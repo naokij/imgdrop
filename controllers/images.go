@@ -53,6 +53,7 @@ func (this *ImagesController) Get() {
 	this.Data["images"] = paged_images
 
 	this.Data["thumb"] = len(setting.ImageProxyURL) > 0
+	this.Data["ExtraCSS"] = "/static/css/components/slidenav.min.css"
 	this.Layout = "layout.html"
 	this.TplName = "images.html"
 }
