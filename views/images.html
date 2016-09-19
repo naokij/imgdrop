@@ -8,7 +8,8 @@
 	{{range $image := .images }}
 		<div class="uk-width-small-1-2 uk-width-medium-1-5 uk-panel uk-panel-hover">
 			<a href='{{$image.URL}}' data-uk-lightbox="{group:'my-group'}">
-				<img src="{{if $.thumb}}{{thumb $image.URL `267x200`}}{{else}}{{ $image.URL }}{{end}}"></a>
+				<img style="object-fit: cover;width:192px;height:144px" src="{{if $.thumb}}{{thumb $image.URL `267x200`}}{{else}}{{ $image.URL }}{{end}}">
+				</a>
 			<div>
         		<div class="uk-form-row"><input type="text" class="uk-form-input uk-width-1-1" onClick="this.select();" value="{{ $image.URL }}"></div>
 				<a href='/my_images/delete?image={{$image.File}}' class="uk-icon-remove uk-icon-hover" onclick="return confirm('{{i18n $.Lang `image_remove_confirm`}}');"></a>
