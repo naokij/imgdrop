@@ -8,7 +8,7 @@
 	{{range $image := .images }}
 		<div class="uk-width-small-1-2 uk-width-medium-1-5 uk-panel uk-panel-hover">
 			<a href='{{$image.URL}}' data-uk-lightbox="{group:'my-group'}">
-				<img style="object-fit: cover;width:192px;height:144px" src="{{if $.thumb}}{{thumb $image.URL `267x200`}}{{else}}{{ $image.URL }}{{end}}">
+				<img style="object-fit: contain;width:192px;height:144px" src="{{if $.thumb}}{{thumb $image.URL `267x200,fit`}}{{else}}{{ $image.URL }}{{end}}">
 				</a>
 			<div>
         		<div class="uk-form-row"><input type="text" class="uk-form-input uk-width-1-1" onClick="this.select();" value="{{ $image.URL }}"></div>
