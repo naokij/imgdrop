@@ -1,7 +1,7 @@
-function showImage(url){
+function showImage(url, thumb){
     $("#upload-drop").addClass("uk-hidden");
     $("#upload-result").removeClass("uk-hidden");
-    $("#uploaded-img").attr("src", url);
+    $("#uploaded-img").attr("src", thumb);
     $("#upload-url").attr("value",url);
 }
 
@@ -41,7 +41,7 @@ $(function(){
                     $("#upload-error").removeClass("uk-hidden");
                     $("#upload-error").text(result.Error);
                 }else{
-                    showImage(result.URL)
+                    showImage(result.URL, result.Thumb)
                 }
             }catch(e){
                 $("#upload-error").removeClass("uk-hidden");

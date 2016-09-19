@@ -52,7 +52,7 @@ func (this *ImagesController) Get() {
 	}
 	this.Data["images"] = paged_images
 
-	//this.Data["ExtraCSS"] = "/static/css/images.css"
+	this.Data["thumb"] = len(setting.ImageProxyURL) > 0
 	this.Layout = "layout.html"
 	this.TplName = "images.html"
 }

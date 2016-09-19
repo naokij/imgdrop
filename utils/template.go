@@ -65,6 +65,10 @@ func base64encode(str string) string {
 	return encoded
 }
 
+func Thumb(url string, option string) string {
+	return setting.ImageProxyURL + "/" + option + "/" + template.URLQueryEscaper(url)
+}
+
 func init() {
 	// Register template functions.
 	beego.AddFuncMap("loadtimes", loadtimes)
@@ -76,4 +80,5 @@ func init() {
 	beego.AddFuncMap("i18n", i18n.Tr)
 	beego.AddFuncMap("isset", isSet)
 	beego.AddFuncMap("b64enc", base64encode)
+	beego.AddFuncMap("thumb", Thumb)
 }

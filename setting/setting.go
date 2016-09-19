@@ -20,16 +20,16 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/cache"
 	"github.com/astaxie/beego/orm"
-	"github.com/astaxie/beego/utils/captcha"
 	_ "github.com/mattn/go-sqlite3"
 )
 
 var (
-	AppName string
-	AppHost string
-	AppUrl  string
-	AppLogo string
-	TmpPath string
+	AppName       string
+	AppHost       string
+	AppUrl        string
+	AppLogo       string
+	TmpPath       string
+	ImageProxyURL string
 )
 
 var (
@@ -42,8 +42,7 @@ var (
 )
 
 var (
-	Cache   cache.Cache
-	Captcha *captcha.Captcha
+	Cache cache.Cache
 )
 
 const (
@@ -60,6 +59,8 @@ func InitApp() {
 	TmpPath = beego.AppConfig.String("tmppath")
 	CookieUserName = beego.AppConfig.String("cookieusername")
 	CookieRememberName = beego.AppConfig.String("CookieRememberName")
+	imageproxyurl, _ := beego.GetConfig("String", "imageproxyurl", "")
+	ImageProxyURL = imageproxyurl.(string)
 
 	if err = orm.RegisterDataBase("default", "sqlite3", "data.db", 30); err != nil {
 		beego.Error("sqlite3", err)
@@ -72,9 +73,5 @@ func InitApp() {
 		beego.Error("cache", err)
 		ConfigBroken = true
 	}
-
-	Captcha = captcha.NewWithFilter("/captcha/", Cache)
-	Captcha.FieldIDName = "captcha-id"
-	Captcha.FieldCaptchaName = "captcha"
 
 }

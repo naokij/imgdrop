@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"github.com/naokij/imgdrop/setting"
+	"github.com/naokij/imgdrop/utils"
 	"github.com/rs/xid"
 	"os"
 )
@@ -14,6 +15,7 @@ type UploadResponse struct {
 	Success bool
 	URL     string
 	Error   string
+	Thumb   string
 }
 
 func (this *UploadController) Post() {
@@ -46,6 +48,12 @@ func (this *UploadController) Post() {
 		} else {
 			response.Success = true
 			response.URL = setting.AppUrl + urlPrefix + h.Filename
+			if len(setting.ImageProxyURL) > 0 {
+				response.Thumb = utils.Thumb(response.URL, "350x")
+			} else {
+				response.Thumb = response.URL
+			}
+
 		}
 
 	}

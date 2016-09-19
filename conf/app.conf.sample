@@ -4,18 +4,13 @@ runmode = dev
 apphost = localhost:8080
 appurl = http://localhost:8080
 tmppath = /tmp/
-
+imageproxyurl = http://localhost:4593
 
 sessionon = true
 
 [security]
 cookieusername = natural
 cookieremembername = water
-
-[attachment]
-store = local
-url = http://s.gotalk.local/attachments/
-local_path = ./attachments
 
 [lang]
 types=en-US|zh-CN|zh-TW
