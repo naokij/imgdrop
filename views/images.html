@@ -7,7 +7,7 @@
 <div  class="uk-margin uk-panel uk-panel-box uk-panel-header" data-uk-grid="{gutter: 20}">
 	{{range $image := .images }}
 		<div class="uk-width-small-1-2 uk-width-medium-1-5 uk-panel uk-panel-hover">
-			<img src="{{if $.thumb}}{{thumb $image.URL `x200`}}{{else}}{{ $image.URL }}{{end}}">
+			<img src="{{if $.thumb}}{{thumb $image.URL `200x`}}{{else}}{{ $image.URL }}{{end}}">
 			<div>
         		<div class="uk-form-row"><input type="text" class="uk-form-input uk-width-1-1" onClick="this.select();" value="{{ $image.URL }}"></div>
 				<a href='/my_images/delete?image={{$image.File}}' class="uk-icon-remove uk-icon-hover delete" onclick="return confirm('{{i18n $.Lang `image_remove_confirm`}}');"></a>
